@@ -1,16 +1,96 @@
-# React + Vite
+# CodePaste App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodePaste App is a small React app for creating, saving, editing, viewing, copying, and deleting text/code snippets in the browser.
 
-Currently, two official plugins are available:
+The project uses React, Redux Toolkit, React Router, Tailwind CSS, and Vite. Paste data is stored in `localStorage`, so the app works without a backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Create a new paste with a title and content
+- Edit an existing paste
+- View a single paste on its own route
+- Search saved pastes by title or content
+- Copy paste content to the clipboard
+- Delete individual pastes
+- Clear all saved pastes
+- Persist data with `localStorage`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- Redux Toolkit
+- React Redux
+- React Router DOM
+- Tailwind CSS
+- React Hot Toast
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```text
+src/
+  app/
+    store.js
+  components/
+    Home.jsx
+    Navbar.jsx
+    Pastes.jsx
+    ViewPaste.jsx
+  redux/
+    PasteSlice.js
+  App.jsx
+  index.css
+  main.jsx
+```
+
+## Routes
+
+- `/` : Create a new paste or edit an existing one through the `pasteId` query param
+- `/pastes` : View all saved pastes
+- `/pastes/:id` : View a single paste
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the development server
+
+```bash
+npm run dev
+```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Preview the production build
+
+```bash
+npm run preview
+```
+
+## How It Works
+
+- The form on the home page creates a new paste when no `pasteId` is present.
+- If `pasteId` exists in the URL, the form loads that paste and updates it.
+- Redux manages the paste list.
+- Each create, update, or delete action also syncs the latest state to `localStorage`.
+
+## Notes
+
+- This project currently uses browser storage only. Data is local to the current browser.
+- Clipboard copy depends on browser support for `navigator.clipboard`.
+
+## Repo Name Suggestion
+
+If you want to push this project to GitHub, a clean repo name is:
+
+```text
+codepaste-app
+```
