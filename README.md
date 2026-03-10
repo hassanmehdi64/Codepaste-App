@@ -87,10 +87,4 @@ npm run preview
 - This project currently uses browser storage only. Data is local to the current browser.
 - Clipboard copy depends on browser support for `navigator.clipboard`.
 
-## Repo Name Suggestion
 
-If you want to push this project to GitHub, a clean repo name is:
-
-```text
-codepaste-app
-```
